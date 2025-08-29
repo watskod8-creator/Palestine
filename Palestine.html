@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>𝔚𝔥𝔞𝔱𝔰𝔄𝔭𝔭 𝔅𝔞𝔫𝔞𝔫𝔞 💀</title>
+    <meta name="theme-color" content="#ff0000">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Reem Kufi Ink', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            line-height: 1.6;
+            font-weight: bold;
+            touch-action: manipulation;
+        }
+        
+        /* شاشة الترحيب */
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .welcome-message {
+            background: linear-gradient(45deg, #000, #200, #000);
+            border: 3px solid #ff3333;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+            max-width: 600px;
+            width: 90%;
+        }
+        
+        .welcome-title {
+            font-size: 2.5rem;
+            color: #ff3333;
+            text-shadow: 0 0 15px #ff0000;
+            margin-bottom: 30px;
+            font-family: 'Aref Ruqaa Ink', serif;
+        }
+        
+        .welcome-text {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin: 20px 0;
+            text-shadow: 0 0 5px #ff3333;
+            line-height: 1.8;
+        }
+        
+        .enter-btn {
+            background: linear-gradient(45deg, #ff3333, #ff0000, #ff3333);
+            color: #000;
+            border: 2px solid #ffcc00;
+            padding: 18px 40px;
+            font-size: 1.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 40px;
+            font-weight: 900;
+            text-shadow: 0 0 5px #000;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+            transition: all 0.3s;
+            font-family: 'Aref Ruqaa Ink', serif;
+        }
+        
+        .enter-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 35px rgba(255, 0, 0, 1);
+        }
+        
+        /* تأثير الماتريكس في الخلفية */
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+        
+        .blood-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 40% 80%, rgba(255, 0, 0, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 60% 20%, rgba(255, 0, 0, 0.15) 0%, transparent 20%);
+            pointer-events: none;
+        }
+        
+        .scary-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23ff0000" stroke-width="0.5" stroke-opacity="0.1"/></svg>');
+            z-index: -1;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .floating-ghosts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .ghost {
+            position: absolute;
+            font-size: 40px;
+            animation: float-ghost 25s infinite linear;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        @keyframes float-ghost {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(75vh) translateX(50px) rotate(90deg);
+            }
+            50% {
+                transform: translateY(50vh) translateX(-50px) rotate(180deg);
+            }
+            75% {
+                transform: translateY(25vh) translateX(50px) rotate(270deg);
+            }
+            100% {
+                transform: translateY(-100px) translateX(0) rotate(360deg);
+            }
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 650px;
+            padding: 30px;
+            border: 3px solid #ff3333;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.7),
+                        inset 0 0 30px rgba(255, 0, 0, 0.5);
+            background-color: rgba(20, 20, 20, 0.95);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin: 20px 0;
+            backdrop-filter: blur(5px);
+            display: none;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, transparent 48%, rgba(255, 0, 0, 0.1) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 0, 0, 0.1) 50%, transparent 52%);
+            background-size: 25px 25px;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        h1 {
+            font-family: 'Aref Ruqaa Ink', serif;
+            font-size: 3rem;
+            text-shadow: 0 0 15px #ff3333, 0 0 25px #ff0000;
+            margin-top: 0;
+            animation: flicker 3s infinite alternate;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #ffffff, #ff9999, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px #ff3333);
+            text-align: center;
+            letter-spacing: 3px;
+            font-weight: 900;
+            padding: 15px;
+            position: relative;
+        }
+        
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff3333, transparent);
+            animation: pulse-line 2s infinite;
+        }
+        
+        .developer {
+            color: #ffff00;
+            font-weight: 900;
+            text-shadow: 0 0 12px #ffff00, 0 0 25px #ffaa00;
+            margin: 25px 0;
+            font-size: 1.8rem;
+            animation: glow 2s infinite alternate;
+            background: linear-gradient(45deg, #ffff00, #ffcc00, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 3px solid #ffcc00;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skull-icon {
+            font-size: 2.5rem;
+            margin: 0 10px;
+            animation: float 3s infinite ease-in-out;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+            text-align: right;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-group::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff3333, transparent);
+            animation: matrix-line 3s linear infinite;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 900;
+            color: #ffffff;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            text-shadow: 0 0 8px #ff3333;
+        }
+        
+        .hint {
+            font-size: 1.1rem;
+            color: #ff9999;
+            margin-top: 8px;
+            text-shadow: 0 0 5px #ff3333;
+            background: rgba(40, 40, 40, 0.9);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #ff3333;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 16px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: 2px solid #ff3333;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-family: 'Reem Kufi Ink', sans-serif;
+            box-shadow: inset 0 0 12px rgba(255, 0, 0, 0.6);
+            transition: all 0.3s;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px #ff3333, inset 0 0 12px rgba(255, 0, 0, 0.6);
+            background-color: #222222;
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: #cc9999;
+            opacity: 0.8;
+            font-weight: 600;
+        }
+        
+        .matrix-field::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent 90%, rgba(255, 0, 0, 0.1) 100%);
+            background-size: 100% 5px;
+            z-index: 1;
+            pointer-events: none;
+            animation: matrix-flow 20s infinite linear;
+        }
+        
+        .color-change-btn {
+            background: linear-gradient(45deg, #1a1a1a, #252525, #1a1a1a);
+            color: #ffffff;
+            border: 2px solid #ff3333;
+            padding: 16px 24px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Aref Ruqaa Ink', serif;
+            transition: all 0.3s;
+            text-shadow: 0 0 8px #ff3333;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+            margin: 8px;
+            font-weight: 900;
+            min-width: 170px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .color-change-btn:hover {
+            background: linear-gradient(45deg, #ff3333, #ff6666, #ff3333);
+            color: #000;
+            text-shadow: none;
+            box-shadow: 0 0 25px #ff3333;
+        }
+        
+        .text-change-btn {
+            background: linear-gradient(45deg, #1a1a1a, #252525, #1a1a1a);
+            color: #ffffff;
+            border: 2px solid #33ff33;
+            padding: 16px 24px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Aref Ruqaa Ink', serif;
+            transition: all 0.3s;
+            text-shadow: 0 0 8px #33ff33;
+            box-shadow: 0 0 15px rgba(51, 255, 51, 0.7);
+            margin: 8px;
+            font-weight: 900;
+            min-width: 170px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .text-change-btn:hover {
+            background: linear-gradient(45deg, #33ff33, #66ff66, #33ff33);
+            color: #000;
+            text-shadow: none;
+            box-shadow: 0 0 25px #33ff33;
+        }
+        
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #1a1a1a, #252525, #1a1a1a);
+            color: #ffffff;
+            border: 3px solid #ff3333;
+            padding: 18px 32px;
+            font-size: 1.4rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Aref Ruqaa Ink', serif;
+            transition: all 0.3s;
+            text-shadow: 0 0 10px #ff3333;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+            font-weight: 900;
+            min-width: 220px;
+        }
+        
+        button:hover {
+            background: linear-gradient(45deg, #ff3333, #ff6666, #ff3333);
+            color: #000;
+            text-shadow: none;
+            box-shadow: 0 0 30px #ff3333;
+        }
+        
+        button::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right, 
+                rgba(255, 255, 255, 0.2), 
+                rgba(255, 0, 0, 0.15), 
+                transparent
+            );
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+        
+        .music-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px 12px;
+            border-radius: 50px;
+            border: 2px solid #ff3333;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+        }
+        
+        .music-btn {
+            background: #ff3333;
+            color: black;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .music-btn:hover {
+            background: #ff6666;
+            transform: scale(1.1);
+        }
+        
+        .hacker-terminal {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            width: 300px;
+            height: 160px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid #33ff33;
+            border-radius: 10px;
+            padding: 12px;
+            color: #33ff33;
+            font-family: monospace;
+            font-size: 12px;
+            overflow: hidden;
+            z-index: 90;
+            box-shadow: 0 0 20px rgba(51, 255, 51, 0.8);
+        }
+        
+        .terminal-text {
+            text-shadow: 0 0 5px #33ff33;
+        }
+        
+        .surprise-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 12px 16px;
+            border-radius: 50px;
+            border: 2px solid #ff33ff;
+            color: #ff33ff;
+            font-weight: bold;
+            text-shadow: 0 0 8px #ff33ff;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(255, 51, 255, 0.7);
+        }
+        
+        .surprise-btn:hover {
+            background: #ff33ff;
+            color: #000;
+        }
+        
+        .hidden-message {
+            position: fixed;
+            bottom: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border: 2px solid #ff3333;
+            border-radius: 10px;
+            color: #ff3333;
+            font-weight: bold;
+            text-shadow: 0 0 5px #ff3333;
+            display: none;
+            z-index: 100;
+            animation: message-pulse 2s infinite;
+        }
+        
+        @keyframes message-pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 15px #ff3333, 0 0 25px #ff0000;
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: 0 0 20px #ff3333, 0 0 35px #ff0000;
+                opacity: 0.9;
+            }
+        }
+        
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #ffff00, 0 0 20px #ffaa00;
+            }
+            100% {
+                text-shadow: 0 0 20px #ffff00, 0 0 35px #ffaa00, 0 0 45px #ff8800;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) rotate(30deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(30deg);
+            }
+        }
+        
+        @keyframes matrix-line {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        @keyframes matrix-flow {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 100%;
+            }
+        }
+        
+        @keyframes pulse-line {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        .scary-text {
+            animation: scary 10s infinite;
+            font-size: 1.3rem;
+            margin-top: 25px;
+            color: #ff9999;
+            text-shadow: 0 0 8px #ff3333;
+            background: rgba(40, 40, 40, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ff3333;
+            text-align: center;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        
+        @keyframes scary {
+            0%, 55%, 60%, 65%, 70%, 100% {
+                opacity: 0.9;
+            }
+            50%, 57%, 62%, 67% {
+                opacity: 1;
+            }
+        }
+        
+        .floating-symbols {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .symbol {
+            position: absolute;
+            color: rgba(255, 0, 0, 0.3);
+            font-size: 24px;
+            animation: float-symbol 15s infinite linear;
+            filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
+            z-index: -1;
+        }
+        
+        @keyframes float-symbol {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+        
+        .matrix-text {
+            position: absolute;
+            color: #ff3333;
+            font-family: monospace;
+            z-index: -1;
+            opacity: 0.7;
+            text-shadow: 0 0 5px #ff3333;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .floating-emojis {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .emoji {
+            position: absolute;
+            font-size: 30px;
+            animation: float-emoji 20s infinite linear;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+            opacity: 0.8;
+            z-index: -1;
+        }
+        
+        @keyframes float-emoji {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg) scale(1.2);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        /* تحسينات للجوال */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+                width: 95%;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .developer {
+                font-size: 1.4rem;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+            }
+            
+            button, .color-change-btn, .text-change-btn {
+                width: 100%;
+                margin: 8px 0;
+                padding: 14px 20px;
+                font-size: 1.2rem;
+            }
+            
+            .music-controls {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 10px;
+            }
+            
+            .hacker-terminal {
+                width: 260px;
+                height: 140px;
+                bottom: 70px;
+                left: 10px;
+                font-size: 11px;
+            }
+            
+            .surprise-btn {
+                top: 10px;
+                right: 10px;
+                padding: 10px 14px;
+                font-size: 0.9rem;
+            }
+            
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .welcome-text {
+                font-size: 1.1rem;
+            }
+            
+            .enter-btn {
+                font-size: 1.5rem;
+                padding: 15px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .developer {
+                font-size: 1.2rem;
+            }
+            
+            .music-controls {
+                flex-direction: column;
+                border-radius: 20px;
+                padding: 8px;
+            }
+            
+            .hacker-terminal {
+                width: 230px;
+                height: 120px;
+                font-size: 10px;
+            }
+            
+            .surprise-btn {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+            
+            .welcome-title {
+                font-size: 1.8rem;
+            }
+            
+            .welcome-text {
+                font-size: 1rem;
+            }
+            
+            .enter-btn {
+                font-size: 1.3rem;
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-bg"></canvas>
+    <div class="blood-effect"></div>
+    <div class="scary-overlay"></div>
+    <div class="floating-ghosts" id="floating-ghosts"></div>
+    <div class="floating-symbols" id="floating-symbols"></div>
+    <div class="floating-emojis" id="floating-emojis"></div>
+    
+    <!-- شاشة الترحيب -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-message">
+            <div class="welcome-title">أهلًا بك ياـعــويـسـ عـ💀ـدو إبـلـيـسـ😈✌🏻</div>
+            <div class="welcome-text">"سـيـتـم دوسـ👞ـكـم مـن قـيـبلـي وسـتحـنـون رؤسـكـم لـي اجـلي💋"</div>
+            <div class="welcome-text">"إذا اثـرتـمـ الـغـضـب فـيـنـيـ فـإن دمـائـكـم لـن تـكـفـيـنـيـ💪🏻🔥🍷"</div>
+            <div class="welcome-text">"الـلـهـم إنـصـر إخـوانـنـا فـي فـلـسـطـيـ🇵🇸ـنـ يا الـلـه👐🏻"</div>
+            <button class="enter-btn" id="enterBtn">دخـولـ🍷🌹 الــعــويـسـ </button>
+        </div>
+    </div>
+    
+    <!-- عناصر التحكم بالموسيقى -->
+    <div class="music-controls">
+        <button class="music-btn" id="playBtn">▶️</button>
+        <button class="music-btn" id="pauseBtn">⏸️</button>
+    </div>
+    
+    <!-- زر المفاجأة -->
+    <div class="surprise-btn" id="surpriseBtn">💀 المفاجأة</div>
+    
+    <!-- محطة هاكر -->
+    <div class="hacker-terminal">
+        <div class="terminal-text" id="terminalText">>> نظام الاختراق جاهز <<</div>
+    </div>
+    
+    <!-- رسالة مخفية -->
+    <div class="hidden-message" id="hiddenMessage">هل تمكنت من نيك الخصم؟</div>
+    
+    <div class="container" id="mainContainer">
+        <h1>𝔚𝔥𝔞𝔱𝔰𝔄𝔭𝔭 𝔅𝔞𝔫𝔞𝔫𝔞 💀</h1>
+        
+        <div class="developer">
+            <span class="skull-icon">💀</span>
+            الــعــويـسـ عـ💀ـدو إبـلـيـسـ😈✌🏻
+            <span class="skull-icon">😈</span>
+        </div>
+        
+        <form id="reportForm">
+            <div class="form-group">
+                <label for="phone"> إدخل رقـم الخصمـ👇🏻😎:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم القحبهـ" class="matrix-field">
+                <div class="hint">👁️ راقب رقمك وتعمق كيف سيتم إنتهاكهـ من قبلـ: الــعــويـسـ عـ💀ـدو إبـلـيـسـ✌🏻</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject"> إدخل موضوع البلاغ يحب💋:</label>
+                <input type="text" id="subject" name="subject" required placeholder="أدخل موضوع البلاغ ياقلب العويس🌹" class="matrix-field">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">💬 الرسالة يحب✌🏻:</label>
+                <textarea id="message" name="message" rows="5" required placeholder="أدخل محتوى الرسالة ياقلب العويس 💌" class="matrix-field"></textarea>
+            </div>
+            
+            <div class="buttons-container">
+                <button type="submit">📧 إرسال الرسالة 💀</button>
+                <button type="button" class="color-change-btn" id="colorChangeBtn">🎨 تغيير الألوان</button>
+                <button type="button" class="text-change-btn" id="textChangeBtn">تغيير لون النصوصـ</button>
+            </div>
+        </form>
+        
+        <div class="scary-text">
+            👁️ نحن نراقبك... لا تحاول الهرب... واتساب لن يحميك فلا مكان للقحابـ... ⚰️
+        </div>
+    </div>
+
+    <!-- عنصر الصوت -->
+    <audio id="bgMusic" loop>
+        <source src="Palestine.mp3" type="audio/mpeg">
+        المتصفح الخاص بك لا يدعم عنصر الصوت.
+    </audio>
+
+    <script>
+        // تأثير الماتريكس في الخلفية
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const arabicNums = '٠١٢٣٤٥٦٧٨٩0123456789';
+        const latinChars = '01{}[]!@#$%^&*()_+-=';
+        const chars = (arabicNums + latinChars).split('');
+        
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * 100;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#ff3333';
+            ctx.font = `bold ${fontSize}px monospace`;
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 70);
+        
+        // إنشاء الأشباح العائمة
+        const ghostsContainer = document.getElementById('floating-ghosts');
+        for (let i = 0; i < 8; i++) {
+            const ghost = document.createElement('div');
+            ghost.className = 'ghost';
+            ghost.textContent = '🇵🇸';
+            ghost.style.left = `${Math.random() * 100}%`;
+            ghost.style.animationDelay = `${Math.random() * 25}s`;
+            ghostsContainer.appendChild(ghost);
+        }
+        
+        // الانتقال إلى الصفحة الرئيسية
+        document.getElementById('enterBtn').addEventListener('click', function() {
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('mainContainer').style.display = 'block';
+        });
+        
+        // زر تغيير الألوان
+        const colorChangeBtn = document.getElementById('colorChangeBtn');
+        let colorIndex = 0;
+        const colors = [
+            { primary: '#ff3333', secondary: '#ffff00', text: '#ffffff' },
+            { primary: '#33ff33', secondary: '#33ffff', text: '#000000' },
+            { primary: '#3333ff', secondary: '#ff33ff', text: '#ffffff' },
+            { primary: '#ff8833', secondary: '#ffaa33', text: '#000000' }
+        ];
+        
+        colorChangeBtn.addEventListener('click', () => {
+            colorIndex = (colorIndex + 1) % colors.length;
+            const newColors = colors[colorIndex];
+            
+            // تطبيق الألوان الجديدة
+            document.querySelector('.container').style.borderColor = newColors.primary;
+            document.querySelector('.container').style.boxShadow = `0 0 25px ${newColors.primary}7f, inset 0 0 25px ${newColors.primary}40`;
+            
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.style.borderColor = newColors.primary;
+                input.style.boxShadow = `inset 0 0 10px ${newColors.primary}7f`;
+            });
+            
+            const buttons = document.querySelectorAll('button, .color-change-btn, .text-change-btn');
+            buttons.forEach(button => {
+                button.style.borderColor = newColors.primary;
+                button.style.boxShadow = `0 0 15px ${newColors.primary}7f`;
+            });
+            
+            // تحديث لون الماتريكس
+            ctx.fillStyle = newColors.primary;
+            
+            // تأثير النبض
+            document.querySelector('.container').classList.add('pulse');
+            setTimeout(() => {
+                document.querySelector('.container').classList.remove('pulse');
+            }, 2000);
+        });
+        
+        // زر تغيير النصوص - إصلاح العمل
+        const textChangeBtn = document.getElementById('textChangeBtn');
+        let textIndex = 0;
+        const textStyles = [
+            { font: 'Reem Kufi Ink', size: '1rem', weight: '700' },
+            { font: 'Aref Ruqaa Ink', size: '1.1rem', weight: '900' },
+            { font: 'monospace', size: '1.05rem', weight: '700' },
+            { font: 'cursive', size: '1.15rem', weight: '800' }
+        ];
+        
+        textChangeBtn.addEventListener('click', () => {
+            textIndex = (textIndex + 1) % textStyles.length;
+            const newStyle = textStyles[textIndex];
+            
+            // تطبيق نمط النص الجديد
+            document.body.style.fontFamily = newStyle.font;
+            document.querySelectorAll('input, textarea, button, .color-change-btn, .text-change-btn').forEach(el => {
+                el.style.fontFamily = newStyle.font;
+                el.style.fontSize = newStyle.size;
+                el.style.fontWeight = newStyle.weight;
+            });
+            
+            // تأثير النبض
+            document.querySelector('.container').classList.add('pulse');
+            setTimeout(() => {
+                document.querySelector('.container').classList.remove('pulse');
+            }, 2000);
+        });
+        
+        // التحكم بالموسيقى
+        const bgMusic = document.getElementById('bgMusic');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        
+        playBtn.addEventListener('click', () => {
+            bgMusic.play();
+        });
+        
+        pauseBtn.addEventListener('click', () => {
+            bgMusic.pause();
+        });
+        
+        // معالجة إرسال النموذج
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if (!phone || !subject || !message) {
+                alert('⚠️ يرجى ملء جميع الحقول المطلوبة!');
+                return;
+            }
+            
+            const fullMessage = `رقم الهاتف المستهدف: ${phone}\n\n${message}`;
+            
+            const emails = [
+                'support@whatsapp.com',
+                'android@support.whatsapp.com',
+                'iphone@support.whatsapp.com',
+                'web@support.whatsapp.com',
+                'windowsphone@support.whatsapp.com',
+                'smb@support.whatsapp.com',
+                'accessibility@support.whatsapp.com',
+                'account@support.whatsapp.com'
+            ];
+            
+            let emailCount = 0;
+            
+            function sendNextEmail() {
+                if (emailCount < emails.length) {
+                    const mailtoLink = `mailto:${emails[emailCount]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(fullMessage)}`;
+                    window.open(mailtoLink, '_blank');
+                    emailCount++;
+                    setTimeout(sendNextEmail, 100);
+                } else {
+                    setTimeout(() => {
+                        alert('💀 تم إرسال البلاغ لجميع بريدات دعم واتساب! 😈📧');
+                        document.body.style.animation = 'none';
+                        document.body.offsetHeight;
+                        document.body.style.animation = 'flicker 0.5s 3';
+                    }, 1000);
+                }
+            }
+            
+            sendNextEmail();
+        });
+
+        // إعادة ضبط حجم Canvas عند تغيير حجم النافذة
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
